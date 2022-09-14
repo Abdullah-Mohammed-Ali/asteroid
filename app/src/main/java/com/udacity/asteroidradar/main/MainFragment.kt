@@ -17,6 +17,7 @@ import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
 import com.udacity.asteroidradar.local_data.getDatabase
 import com.udacity.asteroidradar.repo.Repo
+import kotlinx.android.synthetic.main.item.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,8 +27,11 @@ import kotlinx.coroutines.launch
 fun ImageView.hazardstatus(hazardStatus: Boolean) {
     if (hazardStatus) {
         this.setImageResource(R.drawable.ic_status_potentially_hazardous)
+        this.contentDescription = this.imageView.context.getString(R.string.potentially_hazardous_asteroid_image)
     } else {
         this.setImageResource(R.drawable.ic_status_normal)
+        this.contentDescription = this.imageView.context.getString(R.string.not_hazardous_asteroid_image)
+
 
     }
 }

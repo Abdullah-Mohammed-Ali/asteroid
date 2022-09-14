@@ -3,6 +3,7 @@ package com.udacity.asteroidradar
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import kotlinx.android.synthetic.main.item.view.*
 
 @BindingAdapter("statusIcon")
 fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
@@ -28,6 +29,18 @@ fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
 
         imageView.setImageResource(R.drawable.asteroid_safe)
         imageView.contentDescription = imageView.context.getString(R.string.not_hazardous_asteroid_image)
+
+    }
+}
+
+@BindingAdapter("asteroidSDetailstatusImage")
+fun ImageView.bindStatusImage( isHazardous: Boolean) {
+    if (isHazardous) {
+        this.contentDescription = imageView.context.getString(R.string.potentially_hazardous_asteroid_image)
+
+    } else {
+
+        this.contentDescription = imageView.context.getString(R.string.not_hazardous_asteroid_image)
 
     }
 }
